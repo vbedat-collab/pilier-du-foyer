@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#b46b43" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Pilier du foyer" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Pilier du foyer</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./src/app-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./src/app-icon.svg" />
+    <link rel="stylesheet" href="./src/styles.css?v=58" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore-compat.js"></script>
+    <script src="./src/main.js?v=58"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js?v=58");
+        });
+      }
+    </script>
+  </body>
+</html>
