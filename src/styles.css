@@ -1,0 +1,2583 @@
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #30251f;
+  background: #f5f1ea;
+  --ink: #30251f;
+  --muted: #75665c;
+  --surface: rgba(255, 252, 247, 0.95);
+  --surface-strong: #fffdf7;
+  --line: rgba(81, 68, 58, 0.11);
+  --warm: #8c5a43;
+  --warm-soft: #fff0e3;
+  --sage: #5f7d56;
+  --sage-soft: #edf6e6;
+  --blue: #4f6f7d;
+  --blue-soft: #eaf3f5;
+  --shadow: 0 10px 24px rgba(68, 55, 45, 0.085);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    linear-gradient(180deg, #f8f4ed 0%, #eef4ef 48%, #f6efe8 100%);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.12s ease,
+    box-shadow 0.18s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(79, 111, 125, 0.28);
+  outline-offset: 2px;
+}
+
+.app {
+  width: min(100%, 430px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 18px 16px calc(124px + env(safe-area-inset-bottom));
+}
+
+.hero {
+  min-height: 160px;
+  padding: 22px 20px;
+  border-radius: 22px;
+  color: #fffaf3;
+  background:
+    linear-gradient(90deg, rgba(46, 35, 29, 0.64) 0%, rgba(46, 35, 29, 0.34) 46%, rgba(46, 35, 29, 0.05) 100%),
+    url("../notre%20cuisine%20pluss.png") left center/cover;
+  box-shadow: 0 18px 34px rgba(68, 55, 45, 0.18);
+  text-shadow: 0 2px 12px rgba(28, 20, 15, 0.26);
+}
+
+.eyebrow,
+.label {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 8px 0 8px;
+  font-size: 2rem;
+  line-height: 1.02;
+  letter-spacing: 0;
+  max-width: 17rem;
+}
+
+.hero p:last-child {
+  max-width: 18rem;
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.todayPanel {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 247, 0.9);
+  box-shadow: 0 8px 18px rgba(68, 55, 45, 0.055);
+}
+
+.todayPanel h2 {
+  margin: 5px 0 0;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  text-transform: capitalize;
+}
+
+.todayText {
+  margin: 8px 0 0;
+  color: #7b6155;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.dateControls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.dateControls button {
+  min-height: 42px;
+  border: 1px solid rgba(79, 111, 125, 0.16);
+  border-radius: 14px;
+  color: var(--blue);
+  background: rgba(234, 243, 245, 0.82);
+  font-size: 0.86rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.dateControls button:hover,
+.shoppingToolbar button:hover,
+.smallTextButton:hover {
+  background: #dfecef;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.32rem;
+  letter-spacing: 0;
+}
+
+.sectionHeader span {
+  padding: 4px 8px;
+  border: 1px solid rgba(81, 68, 58, 0.08);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 253, 247, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: right;
+  text-transform: capitalize;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+}
+
+.card,
+.shoppingItem {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.menuCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mealPanel {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.menusToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 247, 0.92);
+  box-shadow: 0 8px 18px rgba(68, 55, 45, 0.055);
+}
+
+.menusToolbar button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 13px;
+  padding: 0 16px;
+  color: #fffaf3;
+  background: var(--warm);
+  box-shadow: 0 8px 14px rgba(140, 90, 67, 0.16);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.menusToolbar button:hover,
+.shoppingForm button:hover,
+.printPanel button:hover,
+.backupPanel > button:hover,
+.profileForm button:hover {
+  background: #7f503c;
+}
+
+.mealChoiceForm {
+  display: grid;
+  grid-template-columns: 1fr 94px;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.86);
+}
+
+.mealChoiceForm label {
+  display: grid;
+  gap: 6px;
+  color: #7b6155;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.mealChoiceForm input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.dailyContextPanel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid rgba(95, 125, 86, 0.16);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(244, 250, 238, 0.94), rgba(255, 253, 247, 0.94));
+  box-shadow: 0 10px 22px rgba(68, 55, 45, 0.08);
+}
+
+.dailyContextHeader {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dailyContextHeader h3,
+.dailyContextHeader p {
+  margin: 0;
+}
+
+.dailyContextHeader h3 {
+  font-size: 1.05rem;
+}
+
+.dailyContextSummary {
+  margin-top: 4px !important;
+  color: #7b6155;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.dailyContextToggle {
+  min-height: 34px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--sage);
+  background: var(--sage-soft);
+  padding: 0 12px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dailyContextGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.dailyContextGrid label {
+  display: grid;
+  gap: 5px;
+  color: #7b6155;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.dailyContextGrid input,
+.dailyContextGrid select {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 8px;
+  color: #30251f;
+  font-weight: 750;
+}
+
+.dailyGoalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.dailyGoal {
+  display: flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 9px;
+  border-radius: 12px;
+  background: var(--surface-strong);
+  color: #6d554a;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.dailyGoal input {
+  width: 18px;
+  height: 18px;
+  accent-color: #7f9f62;
+}
+
+.recipeCard {
+  display: grid;
+  gap: 14px;
+}
+
+.recipeCard p:last-child {
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.recipeCard button,
+.plannedMeal button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 14px;
+  color: #fffaf3;
+  background: var(--warm);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.recipeActions {
+  display: grid;
+  gap: 8px;
+}
+
+.recipeCard .secondaryButton,
+.recipeSheet .secondaryButton {
+  color: var(--warm);
+  background: var(--warm-soft);
+}
+
+.addRecipeButton {
+  min-height: 46px;
+  border: 1px solid rgba(180, 107, 67, 0.2);
+  border-radius: 14px;
+  color: var(--warm);
+  background: var(--warm-soft);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.secondaryRecipeImport {
+  border-color: rgba(127, 159, 98, 0.22);
+  color: #557044;
+  background: #edf6e6;
+}
+
+.recipeFilters {
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 8px;
+}
+
+.recipeFilters input,
+.recipeFilters select {
+  min-height: 42px;
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 750;
+}
+
+.recipeForm {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.recipeFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.recipeForm label {
+  display: grid;
+  gap: 6px;
+  color: #7b6155;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.recipeForm input,
+.recipeForm select,
+.recipeForm textarea {
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.recipeForm input,
+.recipeForm select {
+  min-height: 44px;
+}
+
+.recipeForm textarea {
+  min-height: 120px;
+  padding-top: 10px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.ingredientEditor {
+  display: grid;
+  gap: 10px;
+}
+
+.ingredientEditorRow {
+  display: grid;
+  grid-template-columns: 1fr 84px;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 14px;
+  background: #fff7ee;
+}
+
+.ingredientEditorRow input:nth-of-type(3),
+.ingredientEditorRow select,
+.ingredientEditorRow button {
+  grid-column: 1 / -1;
+}
+
+.ingredientEditorRow button,
+.addIngredientButton {
+  min-height: 40px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.addIngredientButton {
+  color: #fffaf3;
+  background: #b46b43;
+}
+
+.recipeSheet {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.recipeSheet h3,
+.recipeSheet h4,
+.recipeSheet p {
+  margin: 0;
+}
+
+.recipeSheet h3 {
+  font-size: 1.25rem;
+}
+
+.recipeSheet h4 {
+  margin-top: 6px;
+  color: #7b6155;
+  font-size: 1rem;
+}
+
+.deleteWarning {
+  padding: 10px 12px;
+  border: 1px solid rgba(140, 63, 54, 0.16);
+  border-radius: 13px;
+  color: #8c3f36;
+  background: #fff4ef;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.recipeConfirmDelete {
+  justify-content: stretch;
+}
+
+.recipeConfirmDelete button {
+  flex: 1;
+}
+
+.recipeMeta {
+  color: #8c6d5d;
+  font-weight: 800;
+}
+
+.recipePreparation {
+  color: #4f3b31;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.ingredientList {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredientList li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 10px;
+  padding: 10px 12px;
+  border-radius: 13px;
+  background: #fff7ee;
+}
+
+.ingredientList span {
+  font-weight: 800;
+}
+
+.ingredientList strong {
+  color: #8c5a43;
+}
+
+.ingredientList em {
+  grid-column: 1 / -1;
+  color: #8c6d5d;
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.aiHelpPanel {
+  display: grid;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid rgba(95, 125, 86, 0.16);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f5faef, #fbfdf7);
+}
+
+.aiContextSummary {
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--sage);
+  background: var(--sage-soft);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.aiQuickButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.aiHelpPanel button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 12px;
+  color: var(--sage);
+  background: #e3f1d8;
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.aiHelpPanel textarea {
+  min-height: 118px;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid rgba(85, 112, 68, 0.18);
+  border-radius: 12px;
+  color: #30251f;
+  background: #fffdf7;
+  padding: 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.aiHelpMessage {
+  color: #557044;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.plannedMeals {
+  display: grid;
+  gap: 8px;
+}
+
+.plannedMeal {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 8px 18px rgba(68, 55, 45, 0.06);
+}
+
+.plannedMeal,
+.recipeSheet,
+.recipeForm,
+.shoppingForm,
+.backupPanel,
+.profileForm,
+.planningDay,
+.emptyState {
+  border-color: rgba(81, 68, 58, 0.105);
+}
+
+.plannedMeal h3 {
+  margin: 3px 0 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.plannedMealControls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 7px 8px;
+}
+
+.plannedMealControls input:first-of-type {
+  grid-column: 1 / 3;
+}
+
+.plannedMealControls input,
+.peopleInput {
+  min-height: 38px;
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 10px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.peopleInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 12px;
+}
+
+.peopleInput span {
+  color: #9a7564;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.peopleInput input {
+  min-height: 0;
+  width: 2.2rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: center;
+}
+
+.peopleInput input:focus-visible {
+  outline: 0;
+}
+
+.plannedMealControls button {
+  min-height: 30px;
+  padding: 0 8px;
+  border: 1px solid rgba(140, 90, 67, 0.12);
+  border-radius: 999px;
+  color: #8c5a43;
+  background: rgba(255, 240, 227, 0.68);
+  font-size: 0.74rem;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+.plannedMealControls button:first-of-type {
+  color: #9a7564;
+  background: transparent;
+}
+
+.plannedMealControls button:hover {
+  background: #fff0e3;
+}
+
+.card h3 {
+  margin: 5px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}
+
+.card p:last-child {
+  margin: 0;
+  color: #7b6155;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.label {
+  color: #b46b43;
+}
+
+.shoppingList {
+  display: grid;
+  gap: 10px;
+}
+
+.shoppingToolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.shoppingToolbar button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 14px;
+  color: var(--blue);
+  background: var(--blue-soft);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.shoppingToolbar p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #8c6d5d;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.rayonManage {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 253, 247, 0.82);
+}
+
+.rayonManageHeader,
+.rayonManageItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.rayonManageHeader button {
+  min-height: 30px;
+  border: 0;
+  color: #8c5a43;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.rayonManageList {
+  display: grid;
+  gap: 7px;
+}
+
+.rayonManageItem {
+  min-height: 40px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  color: #382a23;
+  background: #fffaf3;
+  font-size: 0.84rem;
+  font-weight: 780;
+}
+
+.rayonMoveButtons {
+  display: flex;
+  gap: 5px;
+}
+
+.rayonMoveButtons button {
+  width: 34px;
+  height: 30px;
+  border: 1px solid rgba(108, 83, 68, 0.14);
+  border-radius: 10px;
+  color: #8c5a43;
+  background: #fff;
+  font-size: 0.95rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.rayonMoveButtons button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quickItems {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quickItemsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.quickItemsHeader button,
+.quickManageItem button {
+  border: 0;
+  color: #8c5a43;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.quickItemList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.quickItemList button {
+  min-height: 34px;
+  border: 1px solid rgba(108, 83, 68, 0.14);
+  border-radius: 999px;
+  padding: 0 10px;
+  color: var(--muted);
+  background: var(--surface);
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.quickEmpty {
+  margin: 0;
+  color: #8c6d5d;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.quickManage {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 252, 247, 0.7);
+}
+
+.quickManageList,
+.quickManageForm {
+  display: grid;
+  gap: 8px;
+}
+
+.quickManageItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  color: #382a23;
+  font-size: 0.9rem;
+  font-weight: 750;
+}
+
+.quickManageForm input,
+.quickManageForm select {
+  min-height: 40px;
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.quickManageForm button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 12px;
+  color: #fffaf3;
+  background: #b46b43;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.shoppingForm {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 14px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.9);
+}
+
+.shoppingForm label {
+  display: grid;
+  gap: 6px;
+  color: #7b6155;
+  font-weight: 800;
+}
+
+.shoppingForm input,
+.shoppingForm select {
+  min-height: 44px;
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.shoppingForm button,
+.printPanel button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 14px;
+  color: #fffaf3;
+  background: #b46b43;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.shoppingFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.printPanel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.printPanel button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.printPanel .secondaryButton {
+  color: #8c5a43;
+  background: #fff0e3;
+}
+
+.shoppingGroups {
+  display: grid;
+  gap: 16px;
+}
+
+.shoppingGroup {
+  display: grid;
+  gap: 10px;
+}
+
+.shoppingGroup h3 {
+  display: inline-grid;
+  justify-self: center;
+  margin: 0;
+  padding: 3px 12px;
+  border-radius: 999px;
+  color: #7b6155;
+  background: rgba(255, 253, 247, 0.72);
+  font-size: 0.86rem;
+  font-weight: 850;
+  text-align: center;
+}
+
+.shoppingItem {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  color: #382a23;
+  font-size: 0.98rem;
+  font-weight: 750;
+  transition:
+    background-color 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.12s ease;
+}
+
+.shoppingItem input {
+  width: 22px;
+  height: 22px;
+  accent-color: #d78252;
+}
+
+.shoppingItem.bought {
+  opacity: 0.58;
+  background: rgba(246, 250, 241, 0.9);
+}
+
+.shoppingItem.bought span {
+  color: #7b6155;
+  text-decoration: line-through;
+}
+
+.shoppingItemText {
+  min-width: 0;
+}
+
+.shoppingComment {
+  display: inline;
+  margin-left: 6px;
+  color: #8c6d5d;
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.shoppingComment::before {
+  content: " - ";
+}
+
+.shoppingComment::after {
+  content: "";
+}
+
+.shoppingBadge {
+  grid-column: 2 / 3;
+  justify-self: start;
+  padding: 2px 6px;
+  border-radius: 999px;
+  color: #7b6155;
+  background: #fff0e3;
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.shoppingItemActions {
+  grid-column: 3 / 4;
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+}
+
+.shoppingItem.freeItem .shoppingItemActions {
+  grid-row: 1 / span 2;
+}
+
+.smallTextButton {
+  min-height: 30px;
+  border: 0;
+  color: #8c5a43;
+  background: transparent;
+  padding: 0 4px;
+  font-size: 0.76rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 3mm;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .hero,
+  .todayPanel,
+  .bottomNav,
+  .backupSection,
+  .profileSection,
+  .shoppingToolbar,
+  .rayonManage,
+  .quickItems,
+  .quickManage,
+  .shoppingForm,
+  .printPanel,
+  .shoppingItemActions,
+  .smallTextButton {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.15;
+  }
+
+  .app {
+    width: 74mm;
+    max-width: 74mm;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .section {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 1.5mm;
+  }
+
+  .sectionHeader h2 {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.1;
+  }
+
+  .sectionHeader span {
+    color: #000000;
+    font-size: 7pt;
+    font-weight: 400;
+  }
+
+  .shoppingGroup h3,
+  .shoppingItem {
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .shoppingGroups {
+    display: block;
+    column-count: 1;
+  }
+
+  .shoppingGroup {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 1.5mm;
+  }
+
+  .shoppingGroup h3 {
+    margin: 0 0 0.4mm;
+    padding-bottom: 0.3mm;
+    border-bottom: 0.5px solid #000000;
+    font-size: 8pt;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .shoppingList {
+    gap: 0;
+  }
+
+  .shoppingItem {
+    grid-template-columns: auto 1fr;
+    min-height: 0;
+    gap: 1.2mm;
+    padding: 0.15mm 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 10pt;
+    font-weight: 400;
+    line-height: 1.15;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shoppingItem input {
+    appearance: none;
+    width: 2.6mm;
+    height: 2.6mm;
+    border: 1px solid #000000;
+    accent-color: #000000;
+  }
+
+  .shoppingBadge {
+    display: none !important;
+  }
+
+  .shoppingItem.freeItem .shoppingItemText::after {
+    content: " (HM)";
+    font-size: 7pt;
+    font-weight: 700;
+  }
+
+  .shoppingComment {
+    display: inline;
+    margin-left: 2mm;
+    color: #000000;
+    font-size: 8pt;
+    font-weight: 400;
+  }
+
+  .shoppingComment::before {
+    content: " - ";
+  }
+}
+
+.taskCard {
+  min-height: 96px;
+}
+
+.taskCard.done {
+  background: rgba(246, 250, 241, 0.92);
+}
+
+.taskSummary {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 252, 247, 0.78);
+}
+
+.taskSummary strong {
+  color: #8c5a43;
+  font-size: 1rem;
+}
+
+.taskSummary span {
+  color: #7b6155;
+  font-weight: 700;
+}
+
+.taskCheckRow {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.taskCheckRow input {
+  width: 24px;
+  height: 24px;
+  accent-color: #7f9f62;
+}
+
+.taskCheckRow span span {
+  display: block;
+}
+
+.taskCheckRow strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.taskCard.done .taskCheckRow strong {
+  color: #7b6155;
+  text-decoration: line-through;
+}
+
+.taskDay {
+  margin-top: 10px;
+  color: #8c6d5d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.emptyState {
+  padding: 22px 18px;
+  border: 1px dashed rgba(108, 83, 68, 0.24);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.68);
+}
+
+.emptyState h3 {
+  margin: 6px 0 8px;
+  font-size: 1.1rem;
+}
+
+.emptyState p:last-child {
+  margin: 0;
+  color: #7b6155;
+  line-height: 1.45;
+}
+
+.backupSection {
+  display: grid;
+  gap: 12px;
+}
+
+.backupPanel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.backupPanel h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.backupPanel p {
+  margin: 0;
+  color: #7b6155;
+  line-height: 1.4;
+}
+
+.backupPanel textarea {
+  min-height: 150px;
+  width: 100%;
+  resize: vertical;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 14px;
+  background: #fffaf3;
+  padding: 10px;
+  color: #30251f;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.backupActions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.backupActions button,
+.backupPanel > button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 14px;
+  color: #fffaf3;
+  background: #8c5a43;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.backupActions button:first-child,
+.backupActions button:nth-child(2) {
+  color: #8c5a43;
+  background: #fff0e3;
+}
+
+.backupFileInput {
+  display: none;
+}
+
+.secondaryBackupButton {
+  min-height: 42px;
+  border: 0;
+  border-radius: 14px;
+  color: #8c5a43;
+  background: #fff0e3;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.backupSummary {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: #4f3b31;
+  background: #fff7ec;
+  font-size: 0.86rem;
+}
+
+.backupSummary.error {
+  color: #8c3f36;
+  background: #ffe8df;
+}
+
+.cloudHint {
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #fff7ec;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.cloudHint.warning {
+  color: #8c3f36;
+  background: #ffe8df;
+}
+
+.backupSummary strong,
+.backupSummary p {
+  margin: 0;
+}
+
+.backupSummary ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.backupMessage {
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: #6d4b3b;
+  background: #fff0e3;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.backupMessage.success {
+  color: #355c33;
+  background: #e9f5df;
+}
+
+.backupMessage.error {
+  color: #8c3f36;
+  background: #ffe8df;
+}
+
+.profileSection {
+  display: grid;
+  gap: 12px;
+}
+
+.profileForm {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.profileForm label {
+  display: grid;
+  gap: 6px;
+  color: #7b6155;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.profileForm input[type="text"],
+.profileForm select,
+.profileForm textarea {
+  width: 100%;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 12px;
+  background: #fffaf3;
+  padding: 0 10px;
+  color: #30251f;
+  font-weight: 700;
+}
+
+.profileForm input[type="text"],
+.profileForm select {
+  min-height: 44px;
+}
+
+.profileForm textarea {
+  min-height: 108px;
+  padding-top: 10px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.profileForm label textarea {
+  min-height: 82px;
+}
+
+.profileToggleGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.profileNestedToggle {
+  display: grid;
+  gap: 6px;
+}
+
+.profileNestedOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-left: 18px;
+  padding-left: 10px;
+  border-left: 2px solid rgba(140, 90, 67, 0.16);
+}
+
+.profileInlineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.profileInlineHeader p {
+  margin: 0;
+}
+
+.profileTextButton {
+  min-height: 32px !important;
+  border: 0;
+  border-radius: 12px !important;
+  color: var(--blue) !important;
+  background: var(--blue-soft) !important;
+  padding: 0 12px;
+  font-size: 0.8rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.profileEquipmentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.profileToggle {
+  display: flex !important;
+  min-height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--surface-strong);
+}
+
+.profileToggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: #7f9f62;
+}
+
+.profileSubToggle {
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 0.78rem;
+}
+
+.profileSubToggle input {
+  width: 18px;
+  height: 18px;
+}
+
+.profileForm button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 14px;
+  color: #fffaf3;
+  background: var(--warm);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.profileMessage {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  color: #355c33;
+  background: #e9f5df;
+  font-weight: 800;
+}
+
+.bottomNav {
+  position: fixed;
+  right: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  width: min(calc(100% - 20px), 430px);
+  padding: 9px;
+  border: 1px solid rgba(81, 68, 58, 0.11);
+  border-radius: 24px;
+  background: rgba(255, 253, 247, 0.94);
+  box-shadow: 0 14px 30px rgba(68, 55, 45, 0.16);
+  transform: translateX(50%);
+  backdrop-filter: blur(18px);
+}
+
+.navButton {
+  display: grid;
+  justify-items: center;
+  gap: 5px;
+  min-height: 54px;
+  padding: 7px 3px;
+  border: 0;
+  border-radius: 17px;
+  color: #7b6155;
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  background: rgba(140, 90, 67, 0.08);
+}
+
+.navButton.active {
+  color: #fffaf3;
+  background: linear-gradient(180deg, #9a6248, #80513e);
+  box-shadow: 0 8px 16px rgba(140, 90, 67, 0.18);
+}
+
+.navIcon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(140, 90, 67, 0.12);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.navButton.active .navIcon {
+  color: #8c5a43;
+  background: #fffaf3;
+}
+
+@media screen and (max-width: 480px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  .app {
+    padding: 12px 10px calc(104px + env(safe-area-inset-bottom));
+  }
+
+  .hero {
+    min-height: 122px;
+    padding: 16px 15px;
+    border-radius: 18px;
+  }
+
+  .hero h1 {
+    margin: 5px 0 8px;
+    font-size: 1.62rem;
+    line-height: 1.02;
+  }
+
+  .hero p:last-child {
+    max-width: 17rem;
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .eyebrow,
+  .label {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+
+  .todayPanel {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 14px;
+  }
+
+  .todayPanel h2 {
+    font-size: 1rem;
+  }
+
+  .todayText {
+    margin-top: 5px;
+    font-size: 0.88rem;
+    line-height: 1.28;
+  }
+
+  .dateControls {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .dateControls button,
+  .menusToolbar button,
+  .mealChoiceForm input,
+  .recipeCard button,
+  .plannedMeal button,
+  .addRecipeButton,
+  .recipeForm input,
+  .recipeForm select,
+  .shoppingForm input,
+  .shoppingForm select,
+  .shoppingForm button,
+  .shoppingToolbar button,
+  .printPanel button {
+    min-height: 36px;
+  }
+
+  .dateControls button {
+    border-radius: 11px;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    margin-top: 16px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 8px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.22rem;
+  }
+
+  .sectionHeader span {
+    font-size: 0.8rem;
+  }
+
+  .cards,
+  .recipeCard,
+  .shoppingList,
+  .planningList {
+    gap: 8px;
+  }
+
+  .card,
+  .recipeSheet,
+  .recipeForm,
+  .shoppingForm,
+  .backupPanel,
+  .emptyState {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .menuCard {
+    gap: 10px;
+  }
+
+  .card h3,
+  .recipeSheet h3 {
+    font-size: 1rem;
+  }
+
+  .card p:last-child,
+  .emptyState p:last-child {
+    font-size: 0.88rem;
+    line-height: 1.28;
+  }
+
+  .menusToolbar {
+    margin-bottom: 10px;
+    padding: 9px 10px;
+    border-radius: 13px;
+  }
+
+  .mealPanel {
+    gap: 9px;
+    margin-bottom: 14px;
+  }
+
+  .mealChoiceForm {
+    gap: 8px;
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .recipeFilters {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .recipeForm,
+  .shoppingForm {
+    gap: 9px;
+  }
+
+  .backupPanel {
+    gap: 9px;
+  }
+
+  .backupPanel textarea {
+    min-height: 96px;
+    font-size: 16px;
+  }
+
+  .backupActions {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+.backupActions button,
+.backupPanel > button,
+.secondaryBackupButton {
+  min-height: 36px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+}
+
+.backupActions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+  .aiHelpPanel {
+    padding: 10px;
+  }
+
+  .aiQuickButtons {
+    gap: 6px;
+  }
+
+  .aiHelpPanel textarea {
+    min-height: 96px;
+    font-size: 16px;
+  }
+
+  .backupSummary {
+    font-size: 0.78rem;
+  }
+
+  .backupSummary ul {
+    grid-template-columns: 1fr;
+  }
+
+  .recipeFormGrid,
+  .shoppingFormGrid {
+    gap: 8px;
+  }
+
+  .ingredientEditorRow {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .plannedMeal {
+    gap: 7px;
+    padding: 9px 10px;
+  }
+
+  .plannedMealControls input {
+    min-height: 34px;
+    border-radius: 9px;
+  }
+
+  .shoppingGroups {
+    gap: 12px;
+  }
+
+  .shoppingToolbar {
+    margin-bottom: 9px;
+  }
+
+  .shoppingToolbar button {
+    min-height: 36px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }
+
+  .shoppingToolbar p {
+    font-size: 0.76rem;
+  }
+
+  .quickItems {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .rayonManage {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .rayonManageItem {
+    min-height: 36px;
+    font-size: 0.78rem;
+  }
+
+  .rayonMoveButtons button {
+    width: 32px;
+    height: 28px;
+  }
+
+  .quickManage {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .quickManageItem,
+  .quickEmpty {
+    font-size: 0.78rem;
+  }
+
+  .quickManageForm input,
+  .quickManageForm select,
+  .quickManageForm button {
+    min-height: 34px;
+  }
+
+  .quickItemList {
+    gap: 5px;
+  }
+
+  .quickItemList button {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 0.74rem;
+  }
+
+  .shoppingGroup {
+    gap: 7px;
+  }
+
+  .shoppingItem {
+    grid-template-columns: auto 1fr auto;
+    min-height: 42px;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 13px;
+    font-size: 0.9rem;
+  }
+
+  .shoppingBadge {
+    grid-column: 2 / 3;
+    justify-self: start;
+    padding: 1px 5px;
+    font-size: 0.58rem;
+  }
+
+  .shoppingItem input {
+    width: 19px;
+    height: 19px;
+  }
+
+  .shoppingComment {
+    margin-left: 4px;
+    font-size: 0.64rem;
+  }
+
+  .shoppingItemActions {
+    gap: 7px;
+  }
+
+  .dailyContextPanel {
+    gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .dailyContextSummary {
+    font-size: 0.78rem;
+  }
+
+  .dailyContextToggle {
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 0.76rem;
+  }
+
+  .dailyContextGrid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .dailyContextGrid input,
+  .dailyContextGrid select {
+    min-height: 38px;
+  }
+
+  .dailyGoalGrid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .dailyGoal {
+    min-height: 34px;
+    font-size: 0.8rem;
+  }
+
+  .smallTextButton {
+    min-height: 30px;
+    font-size: 0.68rem;
+  }
+
+  .bottomNav {
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    gap: 3px;
+    width: min(calc(100% - 10px), 414px);
+    padding: 5px;
+    border-radius: 18px;
+  }
+
+  .navButton {
+    gap: 3px;
+    min-height: 44px;
+    border-radius: 13px;
+    font-size: 0.6rem;
+  }
+
+  .navIcon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.78rem;
+  }
+
+  .profileForm {
+    gap: 9px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .profileForm input[type="text"],
+  .profileForm select,
+  .profileForm button {
+    min-height: 40px;
+  }
+
+  .profileForm textarea {
+    min-height: 96px;
+    font-size: 16px;
+  }
+
+  .profileForm label textarea {
+    min-height: 78px;
+  }
+
+  .profileInlineHeader {
+    gap: 8px;
+  }
+
+  .profileTextButton {
+    min-height: 30px !important;
+    padding: 0 10px;
+    font-size: 0.74rem;
+  }
+
+  .profileNestedOptions {
+    grid-template-columns: 1fr;
+    margin-left: 10px;
+    padding-left: 8px;
+  }
+
+  .profileEquipmentGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .profileEquipmentGrid .profileToggle {
+    min-height: 34px;
+    padding: 7px 8px;
+    font-size: 0.76rem;
+  }
+}
+
+.planningList {
+  display: grid;
+  gap: 12px;
+}
+
+.taskForm {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.9);
+  box-shadow: 0 12px 24px rgba(88, 61, 45, 0.08);
+}
+
+.planningToolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.menageToolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.toolbarButton {
+  min-height: 44px;
+  border: 1px solid rgba(108, 83, 68, 0.14);
+  border-radius: 14px;
+  color: #7b6155;
+  background: rgba(255, 252, 247, 0.82);
+  font-size: 0.92rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.toolbarButton.active {
+  color: #fffaf3;
+  background: #8c5a43;
+}
+
+.trashScreen {
+  display: grid;
+  gap: 10px;
+}
+
+.journalList {
+  display: grid;
+  gap: 12px;
+}
+
+.journalDay {
+  padding: 16px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.86);
+  box-shadow: 0 12px 24px rgba(88, 61, 45, 0.08);
+}
+
+.journalDay ul {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+
+.journalDay li {
+  color: #382a23;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.trashList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trashList li {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.86);
+  box-shadow: 0 12px 24px rgba(88, 61, 45, 0.08);
+}
+
+.trashList h3 {
+  margin: 5px 0 4px;
+  font-size: 1.05rem;
+}
+
+.trashList p:last-child {
+  margin: 0;
+  color: #7b6155;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.trashActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trashActions button,
+.restoreAllButton {
+  min-height: 40px;
+  border: 0;
+  border-radius: 12px;
+  color: #fffaf3;
+  background: #8c5a43;
+  padding: 0 12px;
+  font-size: 0.82rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.dangerButton {
+  color: #8c3f36;
+  background: #fffaf3;
+  border: 1px solid rgba(140, 63, 54, 0.24);
+}
+
+.restoreAllButton {
+  justify-self: start;
+}
+
+.taskForm label {
+  display: grid;
+  gap: 6px;
+  color: #7b6155;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.taskForm input,
+.taskForm select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 14px;
+  color: #30251f;
+  background: #fffaf3;
+  padding: 0 12px;
+  font-size: 1rem;
+}
+
+.taskForm select {
+  text-transform: capitalize;
+}
+
+.frequencyHint {
+  margin: -2px 0 2px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(180, 107, 67, 0.08);
+  color: #7b6155;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.frequencyHint.compact {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 11px;
+  font-size: 0.82rem;
+}
+
+.taskForm button {
+  min-height: 50px;
+  border: 0;
+  border-radius: 15px;
+  color: #fffaf3;
+  background: #8c5a43;
+  font-size: 1rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.planningDay {
+  padding: 16px;
+  border: 1px solid rgba(108, 83, 68, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 252, 247, 0.86);
+  box-shadow: 0 12px 24px rgba(88, 61, 45, 0.08);
+}
+
+.planningDay.today {
+  border-color: rgba(180, 107, 67, 0.45);
+  background: #fff7ee;
+}
+
+.planningDay.daily {
+  border-color: rgba(127, 159, 98, 0.34);
+  background: rgba(246, 250, 241, 0.92);
+}
+
+.planningDay.biweekly {
+  border-color: rgba(90, 144, 141, 0.3);
+  background: rgba(239, 249, 247, 0.92);
+}
+
+.planningDay.monthly {
+  border-color: rgba(156, 118, 171, 0.26);
+  background: rgba(250, 244, 252, 0.92);
+}
+
+.planningDay.punctual {
+  border-color: rgba(99, 129, 165, 0.28);
+  background: rgba(242, 247, 252, 0.92);
+}
+
+.planningDayHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.planningDayHeader h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  text-transform: capitalize;
+}
+
+.planningDayHeader span {
+  color: #8c6d5d;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.planningTasks {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planningTasks li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  color: #382a23;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.deleteTaskButton {
+  min-height: 34px;
+  border: 1px solid rgba(140, 90, 67, 0.18);
+  border-radius: 11px;
+  color: #8c5a43;
+  background: #fffaf3;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.taskActions,
+.editTaskActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 6px;
+}
+
+.editTaskButton,
+.saveEditButton {
+  min-height: 34px;
+  border-radius: 11px;
+  padding: 0 9px;
+  font-size: 0.76rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.editTaskButton {
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  color: #7b6155;
+  background: #fffaf3;
+}
+
+.saveEditButton {
+  border: 0;
+  color: #fffaf3;
+  background: #8c5a43;
+}
+
+.editTaskForm {
+  display: grid;
+  gap: 8px;
+}
+
+.editTaskForm input,
+.editTaskForm select {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  border-radius: 11px;
+  color: #30251f;
+  background: #fffaf3;
+  padding: 0 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.editTaskForm select {
+  text-transform: capitalize;
+}
+
+.confirmDelete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 6px;
+}
+
+.confirmDeleteButton,
+.cancelDeleteButton {
+  min-height: 34px;
+  border-radius: 11px;
+  padding: 0 9px;
+  font-size: 0.76rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.confirmDeleteButton {
+  border: 0;
+  color: #fffaf3;
+  background: #8c5a43;
+}
+
+.cancelDeleteButton {
+  border: 1px solid rgba(108, 83, 68, 0.18);
+  color: #7b6155;
+  background: #fffaf3;
+}
+
+.planningEmpty {
+  margin: 10px 0 0;
+  color: #7b6155;
+  font-weight: 650;
+}
+
+@media (max-width: 370px) {
+  .app {
+    padding-inline: 10px;
+  }
+
+  .hero {
+    padding: 16px 14px;
+  }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .menuCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .card p:last-child {
+    text-align: left;
+  }
+
+  .planningTasks li {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmDelete,
+  .taskActions,
+  .editTaskActions {
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .planningList {
+    gap: 8px;
+  }
+
+  .taskForm,
+  .editTaskForm {
+    gap: 9px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .taskForm input,
+  .taskForm select {
+    min-height: 40px;
+    border-radius: 11px;
+  }
+
+  .taskCard {
+    min-height: 72px;
+  }
+
+  .taskSummary {
+    margin-bottom: 9px;
+    padding: 9px 10px;
+    border-radius: 13px;
+  }
+
+  .taskCheckRow {
+    gap: 9px;
+  }
+
+  .taskCheckRow input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .taskCheckRow strong {
+    font-size: 0.98rem;
+  }
+
+  .taskDay {
+    margin-top: 7px;
+    font-size: 0.82rem;
+  }
+}
